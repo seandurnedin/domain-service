@@ -24,7 +24,8 @@ public class RestConfig implements RepositoryRestConfigurer {
                 Book.class,
                 BorrowingRecord.class,
                 Reservation.class,
-                Payment.class
+                Payment.class,
+                Notification.class
         );
         config.setBasePath(basePath);
     }
