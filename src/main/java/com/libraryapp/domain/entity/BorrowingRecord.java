@@ -47,4 +47,10 @@ public class BorrowingRecord {
     @Column(name = "late_fee", nullable = false, precision = 10, scale = 2)
     @Builder.Default
     private BigDecimal lateFee = BigDecimal.ZERO.setScale(2);
+
+    @PrePersist
+    protected void prePersist() {
+        if (status == null) status = EBorrowingStatus.ON_LOAN;
+        if (lateFee == null) lateFee = BigDecimal.ZERO.setScale(2);
+    }
 }

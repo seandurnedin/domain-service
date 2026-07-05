@@ -48,4 +48,11 @@ public class Book {
     @Column(nullable = false, length = 20)
     @Builder.Default
     private EBookStatus status = EBookStatus.IN_STORE;
+
+    @PrePersist
+    protected void prePersist() {
+        if (totalCopies == null) totalCopies = 1;
+        if (availableCopies == null) availableCopies = totalCopies;
+        if (status == null) status = EBookStatus.IN_STORE;
+    }
 }

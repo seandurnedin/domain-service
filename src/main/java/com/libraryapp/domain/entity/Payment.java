@@ -46,4 +46,10 @@ public class Payment {
     @Column(name = "payment_date")
     @Builder.Default
     private LocalDateTime paymentDate = LocalDateTime.now();
+
+    @PrePersist
+    protected void prePersist() {
+        if (status == null) status = EPaymentStatus.PENDING;
+        if (paymentDate == null) paymentDate = LocalDateTime.now();
+    }
 }

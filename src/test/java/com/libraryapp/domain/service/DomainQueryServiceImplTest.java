@@ -147,7 +147,8 @@ class DomainQueryServiceImplTest {
         assertThat(history).hasSize(1);
         UserBorrowingHistoryDto dto = history.get(0);
         assertThat(dto.getBookTitle()).isEqualTo("Under The Dome");
-        assertThat(dto.getStatus()).isEqualTo("OVERDUE");
+        assertThat(dto.getStatus()).isEqualTo("overdue" +
+                "");
         assertThat(dto.getLateFee()).isEqualByComparingTo(new BigDecimal("1.50"));
     }
 

@@ -77,4 +77,11 @@ public class User {
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private Set<Payment> payments = new HashSet<>();
+
+    @PrePersist
+    protected void prePersist() {
+        if (createdAt == null) createdAt = LocalDateTime.now();
+        if (status == null) status = EUserStatus.ACTIVE;
+        if (role == null) role = ERole.USER;
+    }
 }

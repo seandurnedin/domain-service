@@ -39,6 +39,12 @@ Install the following software before running the application:
 
 ---
 
+## Entity Relationship Diagram
+
+![img.png](img.png)
+
+---
+
 ## 1. Install Java 25
 
 Download and install Java 25.

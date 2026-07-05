@@ -46,4 +46,10 @@ public class Reservation {
      */
     @Column(name = "queue_position")
     private Integer queuePosition;
+
+    @PrePersist
+    protected void prePersist() {
+        if (reservationDate == null) reservationDate = LocalDateTime.now();
+        if (status == null) status = EReservationStatus.RESERVED;
+    }
 }

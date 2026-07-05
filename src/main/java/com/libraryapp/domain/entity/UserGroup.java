@@ -43,4 +43,11 @@ public class UserGroup {
     @OneToMany(mappedBy = "userGroup")
     @Builder.Default
     private Set<User> users = new HashSet<>();
+
+    @PrePersist
+    protected void prePersist() {
+        if (maxBooksAllowed == null) maxBooksAllowed = 5;
+        if (loanDurationDays == null) loanDurationDays = 14;
+        if (dailyLateFee == null) dailyLateFee = new BigDecimal("0.50");
+    }
 }
