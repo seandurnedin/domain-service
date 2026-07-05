@@ -84,4 +84,8 @@ public class User {
         if (status == null) status = EUserStatus.ACTIVE;
         if (role == null) role = ERole.USER;
     }
+
+    public Long getUserGroupId() {
+        return userGroup != null ? userGroup.getId() : null;
+    }
 }

@@ -52,4 +52,12 @@ public class Payment {
         if (status == null) status = EPaymentStatus.PENDING;
         if (paymentDate == null) paymentDate = LocalDateTime.now();
     }
+
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    public Long getBorrowingRecordId() {
+        return borrowingRecord != null ? borrowingRecord.getId() : null;
+    }
 }

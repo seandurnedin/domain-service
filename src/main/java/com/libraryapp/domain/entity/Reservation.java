@@ -52,4 +52,20 @@ public class Reservation {
         if (reservationDate == null) reservationDate = LocalDateTime.now();
         if (status == null) status = EReservationStatus.RESERVED;
     }
+
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    public Long getBookId() {
+        return book != null ? book.getId() : null;
+    }
+
+    public String getBookTitle() {
+        return book != null ? book.getTitle() : null;
+    }
+
+    public String getIsbn() {
+        return book != null ? book.getIsbn() : null;
+    }
 }

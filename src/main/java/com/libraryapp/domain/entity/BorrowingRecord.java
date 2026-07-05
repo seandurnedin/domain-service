@@ -53,4 +53,12 @@ public class BorrowingRecord {
         if (status == null) status = EBorrowingStatus.ON_LOAN;
         if (lateFee == null) lateFee = BigDecimal.ZERO.setScale(2);
     }
+
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    public Long getBookId() {
+        return book != null ? book.getId() : null;
+    }
 }

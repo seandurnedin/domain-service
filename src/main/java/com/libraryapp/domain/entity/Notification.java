@@ -53,4 +53,8 @@ public class Notification {
             createdAt = LocalDateTime.now();
         }
     }
+
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
+    }
 }

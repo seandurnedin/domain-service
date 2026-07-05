@@ -15,7 +15,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @RestResource(path = "by-user", rel = "byUser")
     List<Reservation> findByUserId(@Param("userId") Long userId);
 
-    @RestResource(path = "by-user", rel = "byUser")
+    @RestResource(path = "by-user-and-status", rel = "byUserAndStatus")
     List<Reservation> findByUserIdAndStatus(@Param("userId") Long userId, @Param("status") EReservationStatus status);
 
     @RestResource(path = "queue-for-book", rel = "queueForBook")
