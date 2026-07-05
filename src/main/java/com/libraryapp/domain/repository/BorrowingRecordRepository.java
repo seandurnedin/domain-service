@@ -28,4 +28,8 @@ public interface BorrowingRecordRepository extends JpaRepository<BorrowingRecord
 
     @RestResource(path = "by-user-and-status", rel = "byUserAndStatus")
     List<BorrowingRecord> findByUserIdAndStatus(@Param("userId") Long userId, @Param("status") EBorrowingStatus status);
+
+    @RestResource(path = "active-for-book", rel = "activeForBook")
+    List<BorrowingRecord> findByBookIdAndStatusInOrderByDueDateAsc(
+            @Param("bookId") Long bookId, @Param("status") List<EBorrowingStatus> statuses);
 }

@@ -64,4 +64,12 @@ public class BorrowingRecord {
     public Long getBookRefId() {
         return book != null ? book.getId() : null;
     }
+
+    public String getUsername() {
+        return user != null ? user.getUsername() : null;
+    }
+
+    public String getBookTitle() {
+        return book != null ? book.getTitle() : null;
+    }
 }
