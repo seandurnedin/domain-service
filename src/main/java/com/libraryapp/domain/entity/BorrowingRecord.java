@@ -1,5 +1,6 @@
 package com.libraryapp.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.libraryapp.domain.enums.EBorrowingStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -54,11 +55,13 @@ public class BorrowingRecord {
         if (lateFee == null) lateFee = BigDecimal.ZERO.setScale(2);
     }
 
-    public Long getUserId() {
+    @JsonProperty("userId")
+    public Long getUserRefId() {
         return user != null ? user.getId() : null;
     }
 
-    public Long getBookId() {
+    @JsonProperty("bookId")
+    public Long getBookRefId() {
         return book != null ? book.getId() : null;
     }
 }

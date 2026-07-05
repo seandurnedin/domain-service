@@ -1,5 +1,6 @@
 package com.libraryapp.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.libraryapp.domain.enums.EReservationStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -53,11 +54,13 @@ public class Reservation {
         if (status == null) status = EReservationStatus.RESERVED;
     }
 
-    public Long getUserId() {
+    @JsonProperty("userId")
+    public Long getUserRefId() {
         return user != null ? user.getId() : null;
     }
 
-    public Long getBookId() {
+    @JsonProperty("bookId")
+    public Long getBookRefId() {
         return book != null ? book.getId() : null;
     }
 
@@ -67,5 +70,9 @@ public class Reservation {
 
     public String getIsbn() {
         return book != null ? book.getIsbn() : null;
+    }
+
+    public String getUsername() {
+        return user != null ? user.getUsername() : null;
     }
 }

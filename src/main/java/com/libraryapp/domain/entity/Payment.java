@@ -1,5 +1,6 @@
 package com.libraryapp.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.libraryapp.domain.enums.EPaymentStatus;
 import com.libraryapp.domain.enums.EPaymentType;
 import jakarta.persistence.*;
@@ -53,7 +54,8 @@ public class Payment {
         if (paymentDate == null) paymentDate = LocalDateTime.now();
     }
 
-    public Long getUserId() {
+    @JsonProperty("userId")
+    public Long getUserRefId() {
         return user != null ? user.getId() : null;
     }
 

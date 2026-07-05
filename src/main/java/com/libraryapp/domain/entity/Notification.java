@@ -1,5 +1,6 @@
 package com.libraryapp.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -54,7 +55,8 @@ public class Notification {
         }
     }
 
-    public Long getUserId() {
+    @JsonProperty("userId")
+    public Long getUserRefId() {
         return user != null ? user.getId() : null;
     }
 }

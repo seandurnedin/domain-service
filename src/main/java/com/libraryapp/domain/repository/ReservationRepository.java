@@ -23,4 +23,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     @RestResource(path = "by-status", rel = "byStatus")
     List<Reservation> findByStatus(@Param("status") EReservationStatus status);
+
+    @RestResource(path = "active-for-book", rel = "activeForBook")
+    List<Reservation> findByBookIdAndStatusInOrderByReservationDateAsc(
+            @Param("bookId") Long bookId, @Param("status") List<EReservationStatus> statuses);
 }
